@@ -1,11 +1,13 @@
 const axios = require('axios');
+const { API_URL } = require('config');
+const playersJson = require('../../data/headtohead.json');
 
 class PlayerController {
   static get requestManager() {
-    if (!this._requestManager) {
-      this._requestManager = axios;
+    if (!PlayerController._requestManager) {
+      PlayerController._requestManager = axios;
     }
-    return this._requestManager;
+    return PlayerController._requestManager;
   }
 
   static sortPlayers(players) {
@@ -14,6 +16,17 @@ class PlayerController {
 
   static findPlayerById(players, id) {
     return players.find(player => player.id === id);
+  }
+
+  static async getPlayersFromAPI() {
+    const {
+      data: { players }
+    } = await PlayerController.requestManager.get(API_URL);
+    return players || [];
+  }
+
+  static getPlayersFromJson() {
+    return playersJson;
   }
 }
 
