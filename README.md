@@ -43,6 +43,6 @@ npm run show-coverage
 
 There is a postman collection if you want to try this routes https://www.getpostman.com/collections/009ad0fef8e207f1704e
 
-You will have to define `host` env variable to `http://localhost:8000`
+You will have to define `host` env variable to http://localhost:8000
 
-The application is deployed on `https://tennisplayersstats.herokuapp.com/` so you can test directly on this endpoint
+The application is deployed on https://tennisplayersstats.herokuapp.com/ so you can test directly on this endpoint
