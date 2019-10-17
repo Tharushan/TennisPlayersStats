@@ -22,10 +22,10 @@ npm run dev
 Then you can access it on http://localhost:8000/
 
 There are four routes: 
-- GET `/api/v1/players/`     : List all players from Json file
-- GET `/api/v1/players/:id`  : Get player by Id from Json file
-- GET `/players/`            : List all players from API
-- GET `/players/:id`         : Get player by Id from API
+- GET [/api/v1/players/](https://tennisplayersstats.herokuapp.com/api/v1/players/) : List all players from Json file
+- GET [/api/v1/players/:id`](https://tennisplayersstats.herokuapp.com/api/v1/players/17) : Get player by Id from Json file
+- GET [/players/](https://tennisplayersstats.herokuapp.com/players) : List all players from API
+- GET [/players/:id`](https://tennisplayersstats.herokuapp.com/players/17) : Get player by Id from API
 
 
 ## Tests and coverage:
@@ -44,3 +44,5 @@ npm run show-coverage
 There is a postman collection if you want to try this routes https://www.getpostman.com/collections/009ad0fef8e207f1704e
 
 You will have to define `host` env variable to `http://localhost:8000`
+
+The application is deployed on `https://tennisplayersstats.herokuapp.com/` so you can test directly on this endpoint
