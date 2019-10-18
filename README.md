@@ -22,8 +22,8 @@ npm run dev
 Then you can access it on http://localhost:8000/
 
 There are four routes: 
-- GET [/api/v1/players/](https://tennisplayersstats.herokuapp.com/api/v1/players/) : List all players from Json file
-- GET [/api/v1/players/:id`](https://tennisplayersstats.herokuapp.com/api/v1/players/17) : Get player by Id from Json file
+- GET [/api/fromMock/players/](https://tennisplayersstats.herokuapp.com/api/fromMock/players/) : List all players from Json file
+- GET [/api/fromMock/players/:id`](https://tennisplayersstats.herokuapp.com/api/fromMock/players/17) : Get player by Id from Json file
 - GET [/players/](https://tennisplayersstats.herokuapp.com/players) : List all players from API
 - GET [/players/:id`](https://tennisplayersstats.herokuapp.com/players/17) : Get player by Id from API
 
