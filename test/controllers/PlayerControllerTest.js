@@ -3,7 +3,12 @@ const should = require('should');
 const PlayerController = require('../../src/controllers/PlayerController');
 
 describe('Unit tests', () => {
+  let players;
   describe('PlayerController', () => {
+    beforeEach(() => {
+      players = [{ id: 5 }, { id: 3 }, { id: 8, name: 'Tharu' }];
+    });
+
     describe('PlayerController.requestManager', () => {
       it('should return requestManager object', () => {
         PlayerController.requestManager.should.be.a.Function();
@@ -18,18 +23,16 @@ describe('Unit tests', () => {
 
     describe('PlayerController.sortPlayers(players)', () => {
       it('should sort by id', () => {
-        const players = [{ id: 5 }, { id: 3 }, { id: 8 }];
         PlayerController.sortPlayers(players).should.eql([
           { id: 3 },
           { id: 5 },
-          { id: 8 }
+          { id: 8, name: 'Tharu' }
         ]);
       });
     });
 
     describe('PlayerController.findPlayerById(players, id)', () => {
       it('should find player id 8', () => {
-        const players = [{ id: 5 }, { id: 3 }, { id: 8, name: 'Tharu' }];
         PlayerController.findPlayerById(players, 8).should.eql({
           id: 8,
           name: 'Tharu'
@@ -37,7 +40,6 @@ describe('Unit tests', () => {
       });
 
       it('should not find player id 9', () => {
-        const players = [{ id: 5 }, { id: 3 }, { id: 8, name: 'Tharu' }];
         should.not.exist(PlayerController.findPlayerById(players, 9));
       });
     });
@@ -57,10 +59,10 @@ describe('Unit tests', () => {
         const requestManager = sinon
           .stub(PlayerController.requestManager, 'get')
           .resolves({ data: { players: [{ id: 1 }, { id: 3 }] } });
-        const players = await PlayerController.getPlayersFromAPI();
+        const playersFromApi = await PlayerController.getPlayersFromAPI();
         requestManager.calledOnce.should.be.true();
         requestManager.restore();
-        players.should.eql([{ id: 1 }, { id: 3 }]);
+        playersFromApi.should.eql([{ id: 1 }, { id: 3 }]);
       });
     });
 
