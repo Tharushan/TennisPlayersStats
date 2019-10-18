@@ -4,7 +4,7 @@ const PlayerController = require('../../controllers/PlayerController');
 const data = PlayerController.getPlayersFromJson();
 
 routes.get('/', (req, res) => {
-  return res.status(200).json(PlayerController.sortPlayers(data.players));
+  res.status(200).json(PlayerController.sortPlayers(data.players));
 });
 
 routes.get('/:id', (req, res) => {
