@@ -16,8 +16,8 @@ describe('Unit tests', () => {
       getPlayersFromAPI.restore();
     });
     describe('List /players/ route', () => {
-      it('should return 200', () => {
-        request(app)
+      it('should return 200', async () => {
+        await request(app)
           .get('/players')
           .end((err, res) => {
             if (err) throw err;
@@ -26,9 +26,9 @@ describe('Unit tests', () => {
           });
       });
 
-      it('should return 500', () => {
+      it('should return 500', async () => {
         getPlayersFromAPI.throws('Unexpected error');
-        request(app)
+        await request(app)
           .get('/players')
           .end((err, res) => {
             if (err) throw err;
@@ -37,8 +37,8 @@ describe('Unit tests', () => {
       });
     });
     describe('Get /players/:id route', () => {
-      it('should return 404', () => {
-        request(app)
+      it('should return 404', async () => {
+        await request(app)
           .get('/players/34334')
           .end((err, res) => {
             if (err) throw err;
@@ -46,8 +46,8 @@ describe('Unit tests', () => {
           });
       });
 
-      it('should return 200', () => {
-        request(app)
+      it('should return 200', async () => {
+        await request(app)
           .get('/players/5')
           .end((err, res) => {
             if (err) throw err;
@@ -56,9 +56,9 @@ describe('Unit tests', () => {
           });
       });
 
-      it('should return 500', () => {
+      it('should return 500', async () => {
         getPlayersFromAPI.throws('Unexpected error');
-        request(app)
+        await request(app)
           .get('/players/5')
           .end((err, res) => {
             if (err) throw err;
