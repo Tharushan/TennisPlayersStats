@@ -22,6 +22,7 @@ describe('Unit tests', () => {
           .end((err, res) => {
             if (err) throw err;
             res.statusCode.should.eql(200);
+            res.body.should.be.an.Array();
           });
       });
 
