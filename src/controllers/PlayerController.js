@@ -11,7 +11,7 @@ class PlayerController {
   }
 
   static sortPlayers(players) {
-    return players.sort((a, b) => a.id > b.id);
+    return players.sort((a, b) => (a.id >= b.id ? 1 : -1));
   }
 
   static findPlayerById(players, id) {
