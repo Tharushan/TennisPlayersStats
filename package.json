@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node index.js",
-    "dev": "npx nodemon index.js",
-    "test": "NODE_ENV=test npx mocha -R spec --recursive test --exit",
-    "coverage": "NODE_ENV=test npx nyc --all --reporter=text mocha -R spec --recursive test/ --exit",
-    "coverage-html": "NODE_ENV=test npx nyc --all --reporter=lcov --reporter=html mocha -R mocha-silent-reporter --recursive test/ --exit",
+    "dev": "nodemon index.js",
+    "test": "NODE_ENV=test mocha -R spec --recursive test --exit",
+    "coverage": "NODE_ENV=test nyc --all --reporter=text mocha -R spec --recursive test/ --exit",
+    "coverage-html": "NODE_ENV=test nyc --all --reporter=lcov --reporter=html mocha -R mocha-silent-reporter --recursive test/ --exit",
     "show-coverage": "npm run coverage && npm run coverage-html && xdg-open coverage/index.html",
-    "lint": "npx eslint ./src index.js",
-    "lintfix": "npx eslint ./src index.js --fix",
+    "lint": "eslint ./src index.js",
+    "lintfix": "eslint ./src index.js --fix",
     "precommit": "npm run lint"
   },
   "repository": {
