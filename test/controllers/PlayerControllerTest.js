@@ -49,10 +49,10 @@ describe('Unit tests', () => {
         const requestManager = sinon
           .stub(PlayerController.requestManager, 'get')
           .resolves({ data: {} });
-        const players = await PlayerController.getPlayersFromAPI();
+        const playersFromAPI = await PlayerController.getPlayersFromAPI();
         requestManager.calledOnce.should.be.true();
         requestManager.restore();
-        players.should.eql([]);
+        playersFromAPI.should.eql([]);
       });
 
       it('should return  players array', async () => {
@@ -67,9 +67,9 @@ describe('Unit tests', () => {
     });
 
     describe('PlayerController.getPlayersFromJson()', () => {
-      it('should return players array', async () => {
-        const players = await PlayerController.getPlayersFromJson();
-        players.should.be.an.Object();
+      it('should return single player object', async () => {
+        const playersFromJson = await PlayerController.getPlayersFromJson();
+        playersFromJson.should.be.an.Object();
       });
     });
   });
